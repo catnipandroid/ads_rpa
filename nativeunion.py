@@ -1,13 +1,26 @@
 from NaverSA import NaverSA_API
 from excelCreate import Create_Excel
+from GoogleAds import GoogleAdsAPI, GoogleAdsPerform
+import configparser
+
+####### 엑셀은 한번만 불러와서 하나의 변수에만 담아서 사용할 것! #############
+####### 엑셀 SAVE는 한번만!! #######
+
+config = configparser.ConfigParser()
+config.read('config\info.ini')
+
+################### ################### ################### 
+################### Naver Search Ads 캠페인별 #############
+################### ################### ################### 
+
+# Excel
+nu_wb = Create_Excel(r'static\exist_excel\네이티브유니온 리포트.xlsx')
 
 # Day by Day Data를 담을 배열
 nu_brand_search_pc_data = []
 nu_brand_search_mob_data = []
-
 nu_powerlink_pc_data = []
 nu_powerlink_mob_data = []
-
 
 # 브랜드검색 캠페인
 nuBrandAdCampaign = {
@@ -21,6 +34,7 @@ nuPlAdCampaign = {
     'nccCampaignIdMob': 'cmp-a001-01-000000003193097',
 }
 
+
 # config 파일 필요함
 naver_sa_api = NaverSA_API(config['naver_sa']['multipop_API_KEY'], config['naver_sa']['multipop_SECRET_KEY'], config['naver_sa']['multipop_CUSTOMER_ID'])
 
@@ -32,57 +46,62 @@ naver_sa_api.naverSearch_API_Get(nuBrandAdCampaign['nccCampaignIdMob'], nu_brand
 naver_sa_api.naverSearch_API_Get(nuPlAdCampaign['nccCampaignIdPC'], nu_powerlink_pc_data)
 naver_sa_api.naverSearch_API_Get(nuPlAdCampaign['nccCampaignIdMob'], nu_powerlink_mob_data)
 
-# Excel Select
-brandsa_excel = Create_Excel('static\exist_excel\네이티브유니온 리포트.xlsx', '네이버 브랜드검색')
-
 # 브랜드검색
-brandsa_excel.naver_sa_write(nu_brand_search_pc_data, 56)
-brandsa_excel.naver_sa_write(nu_brand_search_mob_data, 91)
-brandsa_excel.save('static\completed_excel/네이티브유니온 리포트.xlsx')
+nu_wb.naver_sa_write('네이버 브랜드검색', nu_brand_search_pc_data, 56)
+nu_wb.naver_sa_write('네이버 브랜드검색', nu_brand_search_mob_data, 91)
 
 # 파워링크
-powerlink_excel = Create_Excel('static\completed_excel/네이티브유니온 리포트.xlsx', '파워링크')
-powerlink_excel.naver_sa_write(nu_powerlink_pc_data, 56)
-powerlink_excel.naver_sa_write(nu_powerlink_mob_data, 91)
-powerlink_excel.save('static\completed_excel/네이티브유니온 리포트.xlsx')
-
+nu_wb.naver_sa_write('파워링크', nu_powerlink_pc_data, 56)
+nu_wb.naver_sa_write('파워링크', nu_powerlink_mob_data, 91)
 
 
 ################### ################### ################### 
 ################### Google Ads 캠페인별 ###################
 ################### ################### ################### 
 
-## Google SA (Excel파일명, 시트명)
-GoogleSA_excel = Create_Excel('static\completed_excel\네이티브유니온 리포트.xlsx', '구글애즈SA')
-# CID(Str) 및 캠페인아이디(Int) 전달
-googleads_da_api = GoogleAdsAPI('7041360197', 12305055279)
+## Google DA
+# CID 및 캠페인 아이디 전달
+googleads_da_api = GoogleAdsAPI('7041360197', 16792036770)
 # DB 쿼리 실행 (batch api)
 googleads_da_api.get_data()
 # 데이터 가져오기 
 googleAds_Perform = GoogleAdsPerform()
-## Google SA
-GoogleSA_excel.google_ads_write(googleAds_Perform.pc_data, 58)
-GoogleSA_excel.google_ads_write(googleAds_Perform.mob_data, 93)
-GoogleSA_excel.google_ads_write(googleAds_Perform.tablet_data, 128)
-GoogleSA_excel.google_ads_write(googleAds_Perform.others_data, 163)
-GoogleSA_excel.save('static\completed_excel\네이티브유니온 리포트.xlsx')
+## Google DA
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.pc_data, 64)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.mob_data, 99)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.tablet_data, 134)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.others_data, 169)
+googleAds_Perform.clear_data()
+
+## Google Search Ads
+# CID 및 캠페인 아이디 전달
+googleads_sa_api = GoogleAdsAPI('7041360197', 12305055279)
+# DB 쿼리 실행 (batch api)
+googleads_sa_api.get_data()
+# 데이터 가져오기 
+googleAds_Perform = GoogleAdsPerform()
+## Google DA
+nu_wb.google_ads_write('구글애즈SA', googleAds_Perform.pc_data, 58)
+nu_wb.google_ads_write('구글애즈SA', googleAds_Perform.mob_data, 93)
+nu_wb.google_ads_write('구글애즈SA', googleAds_Perform.tablet_data, 128)
+nu_wb.google_ads_write('구글애즈SA', googleAds_Perform.others_data, 163)
 googleAds_Perform.clear_data()
 
 
-## Google Shopping (Excel파일명, 시트명)
-GoogleShopping_excel = Create_Excel('static\completed_excel\네이티브유니온 리포트.xlsx', '구글애즈 쇼핑')
-# CID(Str) 및 캠페인아이디(Int) 전달
-googleads_da_api = GoogleAdsAPI('7041360197', 15660552908)
-# DB 쿼리 실행 (batch api)
-googleads_da_api.get_data()
-# 데이터 가져오기 
-googleAds_Perform = GoogleAdsPerform()
 ## Google Shopping
-GoogleShopping_excel.google_ads_write(googleAds_Perform.pc_data, 58)
-GoogleShopping_excel.google_ads_write(googleAds_Perform.mob_data, 93)
-GoogleShopping_excel.google_ads_write(googleAds_Perform.tablet_data, 128)
-GoogleShopping_excel.google_ads_write(googleAds_Perform.others_data, 163)
-GoogleShopping_excel.save('static\completed_excel\네이티브유니온 리포트.xlsx')
+# CID 및 캠페인 아이디 전달
+googleads_shopping_api = GoogleAdsAPI('7041360197', 15660552908)
+# DB 쿼리 실행 (batch api)
+googleads_shopping_api.get_data()
+# 데이터 가져오기 
+googleAds_Perform = GoogleAdsPerform()
+## Google DA
+nu_wb.google_ads_write('구글애즈 쇼핑', googleAds_Perform.pc_data, 58)
+nu_wb.google_ads_write('구글애즈 쇼핑', googleAds_Perform.mob_data, 93)
+nu_wb.google_ads_write('구글애즈 쇼핑', googleAds_Perform.tablet_data, 128)
+nu_wb.google_ads_write('구글애즈 쇼핑', googleAds_Perform.others_data, 163)
 googleAds_Perform.clear_data()
 
 
+# 저장
+nu_wb.save('static\completed_excel/네이티브유니온 리포트.xlsx')

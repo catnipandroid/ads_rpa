@@ -2,13 +2,12 @@ import openpyxl
 
 class Create_Excel:
     
-    def __init__(self, wb, sheet):
+    def __init__(self, wb):
         self.wb = openpyxl.load_workbook(wb)
-        self.sheet = sheet
+
+    def naver_sa_write(self, sheet, data, cellNo):
         
-    def naver_sa_write(self, data, cellNo):
-        
-        selected_sheet = self.wb[self.sheet]
+        selected_sheet = self.wb[sheet]
         
         for idx, i in enumerate(data):
             imps_data = data[idx]['data'][0]['impCnt']
@@ -25,9 +24,9 @@ class Create_Excel:
 
             cellNo += 1  
             
-    def google_ads_write(self, data, cellNo):
+    def google_ads_write(self, sheet, data, cellNo):
         
-        selected_sheet = self.wb[self.sheet]
+        selected_sheet = self.wb[sheet]
         
         for idx, i in enumerate(data['impCnt']):
             imps_data = data['impCnt'][idx]
@@ -38,7 +37,7 @@ class Create_Excel:
 
             selected_sheet['C'+str(cellNo)] = imps_data
             selected_sheet['D'+str(cellNo)] = clicks_data
-            selected_sheet['G'+str(cellNo)] = cost_data
+            selected_sheet['N'+str(cellNo)] = cost_data
             selected_sheet['H'+str(cellNo)] = ccnt_data
             selected_sheet['K'+str(cellNo)] = convAmt_data
 
