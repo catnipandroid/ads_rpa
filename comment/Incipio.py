@@ -47,7 +47,7 @@ google_pm_title = '■ 구글퍼포먼스맥스 일일\n'
 kakaomoment_title = '■ 카카오모먼트 일일\n'
 
 # File Save
-with open(r'comment\text_files\Griffin.txt', 'w', encoding='UTF8') as f:
+with open(r'comment\text_files\Incipio.txt', 'w', encoding='UTF8') as f:
     f.write(total_title)
     f.write(' - 인시피오: 노출 {:,} / 클릭수 {:,} / 전환수 {:,} / 전환매출 {:,} / 총광고비 {:,}\n'.format(incipio_total_imps,
             incipio_total_clicks, incipio_total_conv, incipio_total_convAmt, incipio_total_cost))

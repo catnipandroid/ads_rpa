@@ -20,25 +20,25 @@ incase_brand_conv = math.floor(incase_ws_dailySummary['H51'].value)
 incase_brand_convAmt = math.floor(incase_ws_dailySummary['K51'].value)
 
 # GoogleSA DATA
-incase_googleSA_imps = incase_ws_dailySummary['C64'].value
-incase_googleSA_clicks = incase_ws_dailySummary['D64'].value
-incase_googleSA_cost = math.floor(incase_ws_dailySummary['G64'].value)
-incase_googleSA_conv = math.floor(incase_ws_dailySummary['H64'].value)
-incase_googleSA_convAmt = math.floor(incase_ws_dailySummary['K64'].value)
+incase_googleSA_imps = incase_ws_dailySummary['C56'].value
+incase_googleSA_clicks = incase_ws_dailySummary['D56'].value
+incase_googleSA_cost = math.floor(incase_ws_dailySummary['G56'].value)
+incase_googleSA_conv = math.floor(incase_ws_dailySummary['H56'].value)
+incase_googleSA_convAmt = math.floor(incase_ws_dailySummary['K56'].value)
 
 # GoogleDA DATA
-incase_googleDA_imps = incase_ws_dailySummary['C69'].value
-incase_googleDA_clicks = incase_ws_dailySummary['D69'].value
-incase_googleDA_cost = math.floor(incase_ws_dailySummary['G69'].value)
-incase_googleDA_conv = math.floor(incase_ws_dailySummary['H69'].value)
-incase_googleDA_convAmt = math.floor(incase_ws_dailySummary['K69'].value)
+incase_googleDA_imps = incase_ws_dailySummary['C61'].value
+incase_googleDA_clicks = incase_ws_dailySummary['D61'].value
+incase_googleDA_cost = math.floor(incase_ws_dailySummary['G61'].value)
+incase_googleDA_conv = math.floor(incase_ws_dailySummary['H61'].value)
+incase_googleDA_convAmt = math.floor(incase_ws_dailySummary['K61'].value)
 
 # Google Shopping DATA
-incase_googleShopping_imps = incase_ws_dailySummary['C59'].value
-incase_googleShopping_clicks = incase_ws_dailySummary['D59'].value
-incase_googleShopping_cost = math.floor(incase_ws_dailySummary['G59'].value)
-incase_googleShopping_conv = math.floor(incase_ws_dailySummary['H59'].value)
-incase_googleShopping_convAmt = math.floor(incase_ws_dailySummary['K59'].value)
+incase_googleShopping_imps = incase_ws_dailySummary['C66'].value
+incase_googleShopping_clicks = incase_ws_dailySummary['D66'].value
+incase_googleShopping_cost = math.floor(incase_ws_dailySummary['G66'].value)
+incase_googleShopping_conv = math.floor(incase_ws_dailySummary['H66'].value)
+incase_googleShopping_convAmt = math.floor(incase_ws_dailySummary['K66'].value)
 
 # TOTAL DATA
 incase_total_imps = incase_ws_total['C80'].value

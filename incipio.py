@@ -3,9 +3,6 @@ from excelCreate import Create_Excel
 from GoogleAds import GoogleAdsAPI, GoogleAdsPerform
 import configparser
 
-####### 엑셀은 한번만 불러와서 하나의 변수에만 담아서 사용할 것! #############
-####### 엑셀 SAVE는 한번만!! #######
-
 config = configparser.ConfigParser()
 config.read('config\info.ini')
 

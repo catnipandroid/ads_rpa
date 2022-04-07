@@ -3,9 +3,6 @@ from excelCreate import Create_Excel
 from GoogleAds import GoogleAdsAPI, GoogleAdsPerform
 import configparser
 
-####### 엑셀은 한번만 불러와서 하나의 변수에만 담아서 사용할 것! #############
-####### 엑셀 SAVE는 한번만!! #######
-
 config = configparser.ConfigParser()
 config.read('config\info.ini')
 
@@ -34,8 +31,8 @@ naver_sa_api.naverSearch_API_Get(incaseBrandAdCampaign['nccCampaignIdPC'], incas
 naver_sa_api.naverSearch_API_Get(incaseBrandAdCampaign['nccCampaignIdMob'], incase_brand_search_mob_data)
 
 # 브랜드검색
-incase_wb.naver_sa_write('네이버 브랜드검색', incase_brand_search_pc_data, 56)
-incase_wb.naver_sa_write('네이버 브랜드검색', incase_brand_search_mob_data, 91)
+incase_wb.naver_brand_sa_write('네이버 브랜드검색', incase_brand_search_pc_data, 56, 18333)
+incase_wb.naver_brand_sa_write('네이버 브랜드검색', incase_brand_search_mob_data, 91, 66000)
 
 
 ################### ################### ################### 
