@@ -38,14 +38,14 @@ class NaverSA_API():
         for i in days31[0:Day]:
             # json data로 변경한다.
             reportDate = json.dumps({
-                                     "since": Year+"-"+Month+"-"+str(i), 
-                                     "until": Year+"-"+Month+"-"+str(i)
+                                        "since": Year+"-"+Month+"-"+str(i), 
+                                        "until": Year+"-"+Month+"-"+str(i)
                                     })
             api_get = requests.get(BASE_URL + uri, 
                                     params={
-                                            'ids': campaign, 
-                                            'fields': '["impCnt", "clkCnt", "salesAmt", "ccnt", "convAmt"]',
-                                            'timeRange': reportDate
+                                                'ids': campaign, 
+                                                'fields': '["impCnt", "clkCnt", "salesAmt", "ccnt", "convAmt"]',
+                                                'timeRange': reportDate
                                             }, 
                                     headers=self.get_header(method, uri, self.API_KEY, self.SECRET_KEY, self.CUSTOMER_ID))
             arr.append(api_get.json())
