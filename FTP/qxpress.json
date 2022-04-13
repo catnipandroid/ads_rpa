@@ -1,0 +1,13 @@
+[
+	{
+		"name": "admin",
+		"host": "qxpress.hosting2003.co.kr",
+		"port": 5001,
+		"type": "ftp",
+		"username": "qxpress",
+		"password": "qxpress123",
+		"path": "/data/skin/respon_default",
+		"autosave": true,
+		"confirm": true
+	}
+]
