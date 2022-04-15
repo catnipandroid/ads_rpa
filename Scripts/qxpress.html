@@ -62,10 +62,31 @@ src="https://www.facebook.com/tr?id=296084286023583&ev=PageView&noscript=1"
 <!-- Facebook Pixel Code -->
 <script>
     fbq('track', 'ViewContent', {
-        content_ids: "1000000111",
+        content_category: "", // 페이지 또는 제품의 카테고리
+        content_name: "", // 페이지또는 제품의 이름
         content_type: 'product',
-        value: 159000.00,
+        value: 1000,
         currency: 'KRW'
     });
 </script>
 <!-- End Facebook Pixel Code -->
+
+<!-- Facebook Pixel Code -->
+<script>
+fbq('trackCustom', 'companyInfoDownload', {
+    value: 2000,
+    content_type: 'product',
+    content_ids: 'Download',
+    currency: 'KRW'
+});	
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    fbq('track', 'Purchase', {
+        content_ids: '',
+        content_type: 'product',
+        value: 10000,
+        currency: 'KRW'
+    });
+</script>
