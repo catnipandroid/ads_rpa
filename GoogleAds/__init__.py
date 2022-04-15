@@ -62,8 +62,6 @@ class GoogleAdsAPI:
                         SELECT
                             campaign.id,
                             segments.device,
-                            metrics.all_conversions_by_conversion_date,
-                            metrics.all_conversions,
                             metrics.average_cpc,
                             metrics.average_cost,
                             metrics.impressions,
@@ -96,25 +94,25 @@ class GoogleAdsAPI:
                             pc_data['impCnt'].append(metrics.impressions)
                             pc_data['clkCnt'].append(metrics.clicks)
                             pc_data['salesAmt'].append( int(metrics.average_cpc*0.000001) )
-                            pc_data['ccnt'].append(metrics.all_conversions)
+                            pc_data['ccnt'].append(metrics.conversions)
                             pc_data['convAmt'].append(metrics.conversions_value)
                         elif query_device_selector[idx] == 'MOBILE' and campaign.id == self.campaign_id:
                             mob_data['impCnt'].append(metrics.impressions)
                             mob_data['clkCnt'].append(metrics.clicks)
                             mob_data['salesAmt'].append( int(metrics.average_cpc*0.000001) )
-                            mob_data['ccnt'].append(metrics.all_conversions)
+                            mob_data['ccnt'].append(metrics.conversions)
                             mob_data['convAmt'].append(metrics.conversions_value)
                         elif query_device_selector[idx] == 'TABLET' and campaign.id == self.campaign_id:
                             tablet_data['impCnt'].append(metrics.impressions)
                             tablet_data['clkCnt'].append(metrics.clicks)
                             tablet_data['salesAmt'].append( int(metrics.average_cpc*0.000001) )
-                            tablet_data['ccnt'].append(metrics.all_conversions)
+                            tablet_data['ccnt'].append(metrics.conversions)
                             tablet_data['convAmt'].append(metrics.conversions_value)
                         elif query_device_selector[idx] == 'OTHERS' and campaign.id == self.campaign_id:
                             others_data['impCnt'].append(metrics.impressions)
                             others_data['clkCnt'].append(metrics.clicks)
                             others_data['salesAmt'].append( int(metrics.average_cpc*0.000001) )
-                            others_data['ccnt'].append(metrics.all_conversions)
+                            others_data['ccnt'].append(metrics.conversions)
                             others_data['convAmt'].append(metrics.conversions_value)
 
 class GoogleAdsPerform(GoogleAdsAPI):

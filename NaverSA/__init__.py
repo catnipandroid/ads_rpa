@@ -41,6 +41,7 @@ class NaverSA_API():
                                         "since": Year+"-"+Month+"-"+str(i), 
                                         "until": Year+"-"+Month+"-"+str(i)
                                     })
+
             api_get = requests.get(BASE_URL + uri, 
                                     params={
                                                 'ids': campaign, 
@@ -48,5 +49,23 @@ class NaverSA_API():
                                                 'timeRange': reportDate
                                             }, 
                                     headers=self.get_header(method, uri, self.API_KEY, self.SECRET_KEY, self.CUSTOMER_ID))
-            arr.append(api_get.json())
-
+            
+            datas = api_get.json()
+            
+            if not datas['data']:
+                arr.append({
+                    'data': [{
+                                'convAmt': 0, 
+                                'clkCnt': 0, 
+                                'ccnt': 0, 
+                                'id': '0', 
+                                'impCnt': 0, 
+                                'salesAmt': 0
+                            }], 
+                    'compTm': '0', 
+                    'cycleBaseTm': '0'
+                })
+            else: 
+                arr.append(datas)
+                
+                
