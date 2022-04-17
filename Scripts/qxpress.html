@@ -90,3 +90,36 @@ fbq('trackCustom', 'companyInfoDownload', {
         currency: 'KRW'
     });
 </script>
+
+
+<script>
+    gtag('event', '소개서다운로드', {
+        'event_category': '소개서 다운로드',
+        'event_label': '회사 소개서 다운로드',
+        'value': 2000
+      });      
+</script>
+
+<script>
+    gtag('event', '서비스 문의', {
+        'event_category': '서비스 문의',
+        'event_label': '서비스 문의',
+        'value': 10000
+    });      
+</script>
+
+<script>
+    gtag('event', '마케팅 또는 제휴 문의', {
+        'event_category': '마케팅 또는 제휴 문의',
+        'event_label': '마케팅 또는 제휴 문의',
+        'value': 10000
+    });      
+</script>
+
+<script>
+    gtag('event', '페이지문의', {
+        'event_category': '페이지문의',
+        'event_label': document.URL.split('/service/')[1],
+        'value': 10000
+    });      
+</script>
