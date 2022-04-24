@@ -44,30 +44,28 @@ cjone_instagram_participate = []
 # Weekly YOUTUBE for loop
 def week_report_cjone(start_cell, start_cell2):
     
-    for i in range(1,4):
-        
-        cjone_youtube_imps.append(cjone_youtube_sheet['E'+str(start_cell)].value)
-        cjone_youtube_views.append(cjone_youtube_sheet['F'+str(start_cell)].value)
-        cjone_youtube_cost.append(cjone_youtube_sheet['G'+str(start_cell)].value)
-        cjone_youtube_participate.append(cjone_youtube_sheet['H'+str(start_cell)].value)
-        
-        start_cell += 1      
-          
     for j in range(1,4):
         
-        cjone_instagram_imps.append(cjone_instagram_sheet['F'+str(start_cell2)].value)
-        cjone_instagram_reach.append(cjone_instagram_sheet['E'+str(start_cell2)].value)
-        cjone_instagram_cost.append(cjone_instagram_sheet['N'+str(start_cell2)].value)
-        cjone_instagram_participate.append(cjone_instagram_sheet['G'+str(start_cell2)].value)
+        cjone_instagram_imps.append(cjone_instagram_sheet['F'+str(start_cell)].value)
+        cjone_instagram_reach.append(cjone_instagram_sheet['E'+str(start_cell)].value)
+        cjone_instagram_cost.append(cjone_instagram_sheet['N'+str(start_cell)].value)
+        cjone_instagram_participate.append(cjone_instagram_sheet['G'+str(start_cell)].value)
 
         
-        start_cell2 += 1        
+        start_cell += 1        
+    
+    for i in range(1,13):
+        
+        cjone_youtube_imps.append(cjone_youtube_sheet['E'+str(start_cell2)].value)
+        cjone_youtube_views.append(cjone_youtube_sheet['F'+str(start_cell2)].value)
+        cjone_youtube_cost.append(cjone_youtube_sheet['G'+str(start_cell2)].value)
+        cjone_youtube_participate.append(cjone_youtube_sheet['H'+str(start_cell2)].value)
+        
+        start_cell2 += 1      
+
 
 # 스타트셀 선택 (youtube, instagram)
-week_report_cjone(62, 62)
-
-## data test ##
-print(cjone_youtube_imps)
+week_report_cjone(83, 73)
 
 
 # Title Texts
