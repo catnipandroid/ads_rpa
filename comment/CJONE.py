@@ -54,7 +54,7 @@ def week_report_cjone(start_cell, start_cell2):
         
         start_cell += 1        
     
-    for i in range(1,13):
+    for i in range(1,14):
         
         cjone_youtube_imps.append(cjone_youtube_sheet['E'+str(start_cell2)].value)
         cjone_youtube_views.append(cjone_youtube_sheet['F'+str(start_cell2)].value)
