@@ -1,0 +1,253 @@
+<!--
+    kodakphotoprinter.co.kr
+    p: 78177
+    Id : godomall
+    Pass: godomall1004
+    item feed: http://kodakphotoprinter.co.kr/partner/criteo.php
+-->
+
+<!-- Criteo 세일즈 태그 - 네이버페이 주문형 -->
+<script type="text/javascript">
+	$(window).load(function(){
+	window.criteo_q = window.criteo_q || [];
+	window.criteo_q.push({
+	requiresDOM: "non-blocking", cb: function () {
+	  var btn = document.getElementsByClassName('npay_btn_pay')[0];
+	  addEvent(btn, "click", function () {
+	   if (typeof(Storage) !== "undefined") {                       
+		// 아래 부분만 업데이트 합니다.
+        let criteo_qtny = document.getElementsByName('goodsCnt[]');
+		let criteoItemInfo = [];
+
+		criteo_qtny.forEach( item => {
+			let CRQtny = item.value;
+			let CRitemTotalPrice = document.querySelector('.item_choice_price').innerText.replace(/,/g,'').replace('원','');
+			criteoItemInfo.push({
+				id: '{=goodsView["goodsNo"]}', 
+				price: CRitemTotalPrice, 
+				quantity: item.value
+			});
+		});
+
+		criteoNpayEvent('78177', criteoItemInfo, "");
+	   }
+	  });               
+	 }
+	});
+
+	function criteoNpayEvent(partnerId, itemArray, email="") {
+		var lastNpayTransaction = localStorage.lastNpayTransaction;
+		var itemIdArray = [];
+		for (item in itemArray){
+			itemIdArray.push(itemArray[item].id);
+		}
+
+		itemIdArray.sort();
+
+		if (lastNpayTransaction !== undefined){
+			var lastNpayTimestamp = lastNpayTransaction.split("||")[0];
+			var lastNpayProductsArray = lastNpayTransaction.split("||")[1].split(",").sort();
+		if ((Date.now() - lastNpayTimestamp)/1000/60 < 10 && arraysMatch(itemIdArray, lastNpayProductsArray))
+			return;
+		}
+
+		var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+
+		criteo_q.push(
+			{ event: "setAccount", account: partnerId },
+			{ event: "setEmail", email: email },
+			{ event: "setSiteType", type: deviceType },
+			{ event: "trackTransaction", id: "npay" + Math.floor(Math.random()*99999999999), item: itemArray }
+		);
+
+		localStorage.lastNpayTransaction = Date.now() + "||" + itemIdArray.join();
+	}
+
+	function arraysMatch(arr1, arr2) {
+		if (arr1.length !== arr2.length) return false;
+		for (var i = 0; i < arr1.length; i++) {
+			if (arr1[i] !== arr2[i]) return false;
+		}
+			return true;
+	};
+
+	function addEvent(obj, evType, fn) {
+		if (obj.addEventListener) {
+			obj.addEventListener(evType, fn, false);
+			return true;
+		} else if (obj.attachEvent) {
+			var r = obj.attachEvent("on" + evType, fn);
+			return r;
+		}
+	}
+	});
+</script>
+<!-- END Criteo 세일즈 태그 - 네이버페이 주문형 -->
+
+
+
+
+
+<!-- Criteo 세일즈 태그 - 네이버페이 주문형 -->
+<script type="text/javascript">
+	$(window).load(function(){
+	window.criteo_q = window.criteo_q || [];
+	window.criteo_q.push({
+	requiresDOM: "non-blocking", cb: function () {
+	  var btn = document.getElementsByClassName('npay_btn_pay')[0];
+	  addEvent(btn, "click", function () {
+	   if (typeof(Storage) !== "undefined") {                       
+		// 아래 부분만 업데이트 합니다.
+        let criteo_qtny = document.getElementsByName('goodsCnt[]');
+		let criteoItemInfo = [];
+
+		criteo_qtny.forEach( item => {
+			let CRQtny = item.value;
+			let CRitemTotalPrice = document.querySelector('strong.price').innerText.replace(/,/g,'').replace('원','');
+			criteoItemInfo.push({
+				id: '{=goodsView["goodsNo"]}', 
+				price: CRitemTotalPrice, 
+				quantity: item.value
+			});
+		});
+
+		criteoNpayEvent('78177', criteoItemInfo, "");
+	   }
+	  });               
+	 }
+	});
+
+	function criteoNpayEvent(partnerId, itemArray, email="") {
+		var lastNpayTransaction = localStorage.lastNpayTransaction;
+		var itemIdArray = [];
+		for (item in itemArray){
+			itemIdArray.push(itemArray[item].id);
+		}
+
+		itemIdArray.sort();
+
+		if (lastNpayTransaction !== undefined){
+			var lastNpayTimestamp = lastNpayTransaction.split("||")[0];
+			var lastNpayProductsArray = lastNpayTransaction.split("||")[1].split(",").sort();
+		if ((Date.now() - lastNpayTimestamp)/1000/60 < 10 && arraysMatch(itemIdArray, lastNpayProductsArray))
+			return;
+		}
+
+		var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+
+		criteo_q.push(
+			{ event: "setAccount", account: partnerId },
+			{ event: "setEmail", email: email },
+			{ event: "setSiteType", type: deviceType },
+			{ event: "trackTransaction", id: "npay" + Math.floor(Math.random()*99999999999), item: itemArray }
+		);
+
+		localStorage.lastNpayTransaction = Date.now() + "||" + itemIdArray.join();
+	}
+
+	function arraysMatch(arr1, arr2) {
+		if (arr1.length !== arr2.length) return false;
+		for (var i = 0; i < arr1.length; i++) {
+			if (arr1[i] !== arr2[i]) return false;
+		}
+			return true;
+	};
+
+	function addEvent(obj, evType, fn) {
+		if (obj.addEventListener) {
+			obj.addEventListener(evType, fn, false);
+			return true;
+		} else if (obj.attachEvent) {
+			var r = obj.attachEvent("on" + evType, fn);
+			return r;
+		}
+	}
+	});
+</script>
+<!-- END Criteo 세일즈 태그 - 네이버페이 주문형 -->
+
+
+
+
+
+<!--Criteo-->
+<script>
+    const CriteoCartItems = [];
+</script>
+
+
+<!--Criteo Cart ProductDetail-->
+<script>
+    CriteoCartItems.push({
+        id: "{=...goodsNo}", 
+        price: {=...price['goodsPriceSubtotal']}/{=...goodsCnt}, 
+        quantity: "{=...goodsCnt}"
+    });
+</script>
+
+
+<!-- Criteo 세일즈 태그 - 네이버페이 주문형 장바구니 -->
+<script type="text/javascript">
+	$(window).load(function(){
+	window.criteo_q = window.criteo_q || [];
+	window.criteo_q.push({
+	requiresDOM: "non-blocking", cb: function () {
+	  var btn = document.getElementsByClassName('npay_btn_pay')[0];
+	  addEvent(btn, "click", function () {
+	   if (typeof(Storage) !== "undefined") {                       
+		// 아래 부분만 업데이트 합니다.
+            criteoNpayEvent('78177', CriteoCartItems, "");
+	   }
+	  });               
+	 }
+	});
+
+	function criteoNpayEvent(partnerId, itemArray, email="") {
+		var lastNpayTransaction = localStorage.lastNpayTransaction;
+		var itemIdArray = [];
+		for (item in itemArray){
+			itemIdArray.push(itemArray[item].id);
+		}
+
+		itemIdArray.sort();
+
+		if (lastNpayTransaction !== undefined){
+			var lastNpayTimestamp = lastNpayTransaction.split("||")[0];
+			var lastNpayProductsArray = lastNpayTransaction.split("||")[1].split(",").sort();
+		if ((Date.now() - lastNpayTimestamp)/1000/60 < 10 && arraysMatch(itemIdArray, lastNpayProductsArray))
+			return;
+		}
+
+		var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+
+		criteo_q.push(
+			{ event: "setAccount", account: partnerId },
+			{ event: "setEmail", email: email },
+			{ event: "setSiteType", type: deviceType },
+			{ event: "trackTransaction", id: "npay" + Math.floor(Math.random()*99999999999), item: itemArray }
+		);
+
+		localStorage.lastNpayTransaction = Date.now() + "||" + itemIdArray.join();
+	}
+
+	function arraysMatch(arr1, arr2) {
+		if (arr1.length !== arr2.length) return false;
+		for (var i = 0; i < arr1.length; i++) {
+			if (arr1[i] !== arr2[i]) return false;
+		}
+			return true;
+	};
+
+	function addEvent(obj, evType, fn) {
+		if (obj.addEventListener) {
+			obj.addEventListener(evType, fn, false);
+			return true;
+		} else if (obj.attachEvent) {
+			var r = obj.attachEvent("on" + evType, fn);
+			return r;
+		}
+	}
+	});
+</script>
+<!-- Criteo 세일즈 태그 - 네이버페이 주문형 장바구니 -->
+

@@ -64,10 +64,10 @@ googleads_da_api.get_data()
 # 데이터 가져오기 
 googleAds_Perform = GoogleAdsPerform()
 ## Google DA
-nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.pc_data, 63)
-nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.mob_data, 98)
-nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.tablet_data, 133)
-nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.others_data, 168)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.pc_data, 58)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.mob_data, 93)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.tablet_data, 128)
+nu_wb.google_ads_write('구글애즈DA', googleAds_Perform.others_data, 163)
 googleAds_Perform.clear_data()
 
 ## Google Search Ads
