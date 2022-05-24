@@ -1,0 +1,65 @@
+
+<!-- kakao moment npay pixel NHN Commerce JaeHyun -->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script type="text/javascript">
+    (function( ){
+        const naverPayBtnEl = document.querySelector('.npay_btn_pay');
+
+        naverPayBtnEl.addEventListener('click', () => {
+            const momentNpayQtyEl = document.getElementsByName('goodsCnt[]')[0];
+            const momentNpayEachPrice = document.querySelector('strong.price'); 
+    
+            const momentNpayProductInfo = [{ 
+                                            id: '{=goodsView["goodsNo"]}', 
+                                            name: "{=goodsView['goodsNm']}", 
+                                            quantity: momentNpayQtyEl.value, 
+                                            price: momentNpayEachPrice.innerText.replace(/[원,'']/g, ''),
+                                        }];
+    
+    
+            kakaoPixel('7013167562474896787').pageView();
+            kakaoPixel('7013167562474896787').purchase({
+                total_quantity: momentNpayQtyEl.value,
+                total_price: String(Number(momentNpayEachPrice.innerText.replace(/[원,'']/g, ''))*Number(momentNpayQtyEl.value)), 
+                currency: "KRW",   
+                products: momentNpayProductInfo
+            });
+        });
+    })();
+</script>
+
+
+<!-- kakao moment npay pixel NHN Commerce JaeHyun -->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script type="text/javascript">
+    (function() {
+        $(document).ready(function(){
+
+            const naverPayBtnEl = document.querySelector('.npay_btn_pay');
+
+            $(naverPayBtnEl).one('click', () => {
+
+
+                const momentNpayQtyEl = document.getElementsByName('goodsCnt[]')[0];
+                const momentNpayEachPrice = document.querySelector('.price'); 
+        
+                const momentNpayProductInfo = [{ 
+                                                id: '{=goodsView["goodsNo"]}', 
+                                                name: "{=goodsView['goodsNm']}".replace(/"/g, ''), 
+                                                quantity: momentNpayQtyEl.value, 
+                                                price: momentNpayEachPrice.innerText.replace(/,/g, ''),
+                                            }];
+        
+
+                kakaoPixel('7013167562474896787').pageView();
+                kakaoPixel('7013167562474896787').purchase({
+                  total_quantity: momentNpayQtyEl.value,
+                  total_price: String(Number(momentNpayEachPrice.innerText.replace(/,/g, ''))*Number(momentNpayQtyEl.value)), 
+                  currency: "KRW",   
+                  products: momentNpayProductInfo
+                });
+            })
+
+          });
+    })();
+</script>

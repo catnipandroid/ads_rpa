@@ -1,0 +1,21 @@
+<!-- kakao moment seperate audiences target making NHN Commerce JH-->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script>    
+(function() {
+
+    const momentCardEl = document.querySelectorAll('.productCard');
+    const momentPnoArry = [];
+
+    momentCardEl.forEach( card => {
+        momentPnoArry.push(card.getAttribute('data-link').split('goodsNo=')[1]);
+    });
+
+	if(document.URL.indexOf('cateCd=011001003') > 0){
+		  kakaoPixel('2244419267497603299').pageView();
+		  kakaoPixel('2244419267497603299').viewContent({
+			  id: '011001003',
+			  tag: '베이비로인 카테고리 조회'
+		  });
+	}
+})();
+</script>

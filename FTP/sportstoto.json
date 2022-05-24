@@ -1,0 +1,13 @@
+[
+	{
+		"name": "sportstotoevent.kr",
+		"host": "sportstotoevent.kr",
+		"port": 21,
+		"type": "ftp",
+		"username": "sportstotoevent1",
+		"password": "toto12wl3!",
+		"path": "/www/ci/application/views",
+		"autosave": true,
+		"confirm": true
+	}
+]
